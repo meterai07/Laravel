@@ -23,3 +23,7 @@ Route::get('/about', function () {
         "email" => "t.mrr39@gmail.com"
     ]);
 });
+
+Route::get('/blog', function () {
+    return view('posts');
+});

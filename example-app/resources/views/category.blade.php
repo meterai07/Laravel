@@ -8,7 +8,7 @@
     @foreach ($posts as $post)
         <article class="mb-5">
             <h2>
-                {{ $post->title }}
+                <a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a>
             </h2>
             <p>{{ $post->excerpt }}</p>
         </article>

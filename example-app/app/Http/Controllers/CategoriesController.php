@@ -9,9 +9,9 @@ class CategoriesController extends Controller
 {
     public function index ()
     {
-        return view('posts', [
-            "title" => "Post By Categories",
-            "categories" => Category::with(['author', 'category'])->latest()->all()
+        return view('categories', [
+            "title" => "Categories",
+            "categories" => Category::all()
         ]);
     }
 

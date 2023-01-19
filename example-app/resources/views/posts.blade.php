@@ -15,7 +15,7 @@
                 @endif
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="search..." name="search" value="{{ request('search') }}">
+                    <input type="text" class="form-control" placeholder="Search here with a total of {{ $total }} posts based on your search" name="search" value="{{ request('search') }}">
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </div>
             </form>

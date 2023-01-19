@@ -8,10 +8,11 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index ()
-    {
+    {   
         return view('posts', [
             "title" => "Blog",
-            "posts" => Post::latest()->get()
+            "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
+            // "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->get()
         ]);
     }
 
@@ -19,7 +20,8 @@ class PostController extends Controller
     {
         return view('post', [
             "title" => "Single Post",
-            "post" => $post->load(['category', 'author'])
+            "post" => $post->load(['category', 'author']),
+            "totalPost" => $post->count()
         ]);
     }
 }

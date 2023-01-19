@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -11,15 +12,7 @@ class CategoriesController extends Controller
     {
         return view('categories', [
             "title" => "Categories",
-            "categories" => Category::all()
-        ]);
-    }
-
-    public function show (Category $category)
-    {
-        return view('posts', [
-            "title" => "Post By Category : $category->name",
-            "posts" => $category->posts->load(['category', 'author'])
+            "categories" => Category::all(),
         ]);
     }
 }

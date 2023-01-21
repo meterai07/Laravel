@@ -22,8 +22,29 @@
         </div>
     </div>
 
+    {{-- category bar --}}
+    @if ($categories->count())
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('posts') && !request('category') && !request('author') ? 'active' : '' }}" href="/posts">All</a>
+                            </li>
+                            @foreach ($categories as $category)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request('category') == $category->slug ? 'active' : '' }}" href="/posts?category={{ $category->slug }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     @if ($posts->count())
-        <div class="card mb-3">
+        <div class="card mb-3 shadow bg-white rounded">
             <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{ $posts[0]->category->name }}">
             <div class="card-body text-center">
                 <h2 class="card-title">
@@ -36,12 +57,13 @@
                 <a href="/posts/{{ $posts[0]->slug }}"><button type="button" class="btn btn-info">Read More</button></a>
             </div>
         </div>
+    @endif
 
     <div class="container">
         <div class="row">
             @foreach ($posts->skip(1) as $post)
             <div class="col-md-4 mb-3">
-                <div class="card">
+                <div class="card shadow-sm bg-white rounded">
                     <div class="position-absolute px-3 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
                     <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
                     <div class="card-body">

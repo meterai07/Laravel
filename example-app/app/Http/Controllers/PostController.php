@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -12,7 +13,8 @@ class PostController extends Controller
         return view('posts', [
             "title" => "Blog",
             "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString(),
-            "total" => Post::latest()->filter(request(['search', 'category', 'author']))->count()
+            "total" => Post::latest()->filter(request(['search', 'category', 'author']))->count(),
+            "categories" => Category::all()
         ]);
     }
 

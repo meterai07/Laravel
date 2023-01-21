@@ -23,18 +23,27 @@
     </div>
 
     {{-- category bar --}}
-    @if ($categories->count())
+    @if ($categories->count() ) 
         <div class="row justify-content-center mb-3">
-            <div class="col-md-6">
+            <div class="col-ml">
                 <div class="card">
                     <div class="card-body">
                         <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->is('posts') && !request('category') && !request('author') ? 'active' : '' }}" href="/posts">All</a>
+                            <li class="nav-item col-md">
+                                <a class="nav-link {{ request()->is('posts') && !request('category') && !request('author') ? 'active' : '' }}" href="/posts">
+                                    {{-- add image --}}
+                                    <img src="https://source.unsplash.com/1200x400?all" class="img-fluid" alt="{{ $posts[0]->category->name }}">
+                                    <h5 class="text-center flex-fill text-white" style="background-color: rgba(0, 0, 0, 1)">All</h5>
+                                </a>
                             </li>
+
                             @foreach ($categories as $category)
-                                <li class="nav-item">
-                                    <a class="nav-link {{ request('category') == $category->slug ? 'active' : '' }}" href="/posts?category={{ $category->slug }}">{{ $category->name }}</a>
+                                <li class="nav-item col-md">
+                                    <a class="nav-link {{ request('category') == $category->slug ? 'active' : '' }}" href="/posts?category={{ $category->slug }}">
+                                        {{-- add image --}}
+                                        <img src="https://source.unsplash.com/1200x400?{{ $category->name }}" class="img-fluid" alt="{{ $category->name }}">
+                                        <h5 class="text-center flex-fill text-white" style="background-color: rgba(0, 0, 0, 1);">{{ $category->name }}</h5>
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>

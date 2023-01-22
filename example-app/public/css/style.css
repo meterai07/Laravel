@@ -17,3 +17,11 @@
 .form-registration input {
     border-radius: 0;
 }
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item.active {
+  background-color: #f8f9fa;
+}

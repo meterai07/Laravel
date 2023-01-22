@@ -21,6 +21,8 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 
+Route::get('/register', [RegisterController::class, 'store']);
+
 // menggunakan closure
 Route::get('/', function () {
     return view('home', [
@@ -41,5 +43,7 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories', [CategoriesController::class, 'index']);
+Route::post('/categories', [CategoriesController::class, 'index']);
+
+
 

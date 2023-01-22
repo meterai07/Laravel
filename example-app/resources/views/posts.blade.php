@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 class="mb-5 text-center">{{ $title }}</h1>
+    <h1 class="mb-3 text-center">{{ $title }}</h1>
 
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -33,7 +33,7 @@
                                 <a class="nav-link {{ request()->is('posts') && !request('category') && !request('author') ? 'active' : '' }}" href="/posts">
                                     {{-- add image --}}
                                     <img src="https://source.unsplash.com/1200x400?all" class="img-fluid" alt="{{ $posts[0]->category->name }}">
-                                    <h5 class="text-center flex-fill text-white" style="background-color: rgba(0, 0, 0, 1)">All</h5>
+                                    <h5 class="text-center text-white" style="background-color: rgba(0, 0, 0, 1)">All</h5>
                                 </a>
                             </li>
 
@@ -42,7 +42,7 @@
                                     <a class="nav-link {{ request('category') == $category->slug ? 'active' : '' }}" href="/posts?category={{ $category->slug }}">
                                         {{-- add image --}}
                                         <img src="https://source.unsplash.com/1200x400?{{ $category->name }}" class="img-fluid" alt="{{ $category->name }}">
-                                        <h5 class="text-center flex-fill text-white" style="background-color: rgba(0, 0, 0, 1);">{{ $category->name }}</h5>
+                                        <h5 class="text-center flex text-white" style="background-color: rgba(0, 0, 0, 1);">{{ $category->name }}</h5>
                                     </a>
                                 </li>
                             @endforeach

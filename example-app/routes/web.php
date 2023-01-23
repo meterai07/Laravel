@@ -21,7 +21,7 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 
-Route::get('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 // menggunakan closure
 Route::get('/', function () {

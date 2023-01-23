@@ -5,9 +5,9 @@
 <div class="row justify-content-center align-items-center">
     <div class="col-lg-4">
         <main class="form-registration w-100 m-auto">
-            <form class="shadow p-3 mb-5 bg-white rounded">
+            <form class="shadow p-3 mb-5 bg-white rounded" method="post" action="/register">
+              @csrf
               <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
-          
               <div class="form-floating">
                 <input type="name" name="name" class="form-control rounded-top" id="name" placeholder="Name">
                 <label for="name">Name</label>

@@ -13,20 +13,16 @@
                 <label for="name">Name</label>
               </div>
               <div class="form-floating">
-                <input type="username" username="username" class="form-control" id="username" placeholder="Username">
+                <input type="username" name="username" class="form-control" id="username" placeholder="Username">
                 <label for="username">Username</label>
               </div>
               <div class="form-floating">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                 <label for="email">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                 <label for="password">Password</label>
-              </div>
-              <div class="form-floating">
-                <input type="password" class="form-control rounded-bottom" id="confirmPassword" placeholder="Password">
-                <label for="confirmPassword">Confirm Password</label>
               </div>
           
               <div class="checkbox mb-3">

@@ -13,16 +13,17 @@
       @endif
 
         <main class="form-signin w-100 m-auto">
-            <form class="shadow p-3 mb-5 bg-white rounded">
+            <form class="shadow p-3 mb-5 bg-white rounded" method="post" action="/login">
+              @csrf
               <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
           
               <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" autofocus required>
+                <label for="email">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                <label for="password">Password</label>
               </div>
           
               <div class="checkbox mb-3">

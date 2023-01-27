@@ -28,7 +28,13 @@ Route::get('/register', [RegisterController::class, 'index']);
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index', [
+        "title" => "Dashboard"
+    ]);
+})->middleware('auth');
 
 // menggunakan closure
 Route::get('/', function () {
